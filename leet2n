@@ -1,0 +1,124 @@
+
+        1 two sum
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        n = len(nums)
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+        return []  # No solution found
+
+
+
+
+ 2 palindrom
+
+class Solution(object):
+    def isPalindrome(self, x):
+            x = str(x)
+             return x == x[::-1]
+
+
+         
+3 longestcommon prefix
+class Solution:
+    def longestCommonPrefix(self, strs):
+        if not strs:
+            return ""
+        prefix = strs[0]
+        for string in strs[1:]:
+            while string.find(prefix) != 0:
+                prefix = prefix[:-1]
+                if not prefix:
+                    return ""
+        return prefix
+
+4 length of last word
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        words = s.split()
+        last_word = words[-1]
+        return len(last_word)
+
+
+5 length of last word
+class Solution(object):
+    def plusOne(self, digits):
+        """
+        :type digits: List[int]
+        :rtype: List[int]
+        """
+
+        my_str = ''.join(map(str,digits))
+        add = int(my_str)+1
+        return [int(num) for num in str(add)]
+
+
+6 remove element
+class Solution(object):
+    def removeElement(self, nums, val):
+        i = 0
+        for x in nums:
+            if x != val:
+                nums[i] = x
+                i += 1
+        return i
+
+
+7 
+class Solution(object):
+    def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        
+
+        c = int(a, 2) + int(b, 2)
+        str1 = ""
+        if c == 0:
+            return str(0)
+        while c >= 1:
+            str1 += str(c%2)
+            c = c//2
+
+        return str1[::-1]        
+
+
+8 mysqrt
+class Solution(object):
+    def mySqrt(self, x):
+        return int(x ** 0.5)
+
+9 climbstairs
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        ways = 1
+
+        for i in range(1, (n // 2) + 1):
+            product = 1
+
+            for j in range(i, 2 * i):
+                product *= (n - j) / (j - i + 1)
+
+            ways += product
+
+        return int(ways)
+
+ 10  same tree
+ class Solution:
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        if not p and not q:
+            return True
+        if not p or not q:
+            return False
+        return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+       
+
+
+
+        
+
